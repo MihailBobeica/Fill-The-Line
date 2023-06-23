@@ -5,3 +5,9 @@
     --color4: #98C1D9;
     --color5: #3D5A80;
 }
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color1);
+}

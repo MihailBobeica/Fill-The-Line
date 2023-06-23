@@ -13,9 +13,15 @@
         @yield('stylesheets')
 
         <script type="text/javascript" src="{{ asset('js/jquery-3.7.0.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/styles.js') }}"></script>
+        <script>
+            $(() => {
+                setRoundBorderRadiusTo('a');
+            });
+        </script>
         @yield('scripts')
     </head>
-    <body style="padding: 0; margin: 0; background-color: var(--color1);">
+    <body>
         @include('sections.navbar')
 
         <noscript>Il tuo browser non supporta JavaScript</noscript>
