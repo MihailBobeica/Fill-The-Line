@@ -2,15 +2,26 @@
 
 @section('title', 'Accedi')
 
+@section('scripts')
+    <script>
+        $(() => {
+            $("input").on("blur", function() {
+                validateInput("login_form", $(this).attr("name"));
+            });
+            validateAndSubmitForm("login_form");
+        });
+    </script>
+@endsection
+
 @section('content')
     <div>
         <div>
             <a href="{{ route('home') }}">{{ config('app.name') }}</a>
         </div>
-        <form method="POST" action="{{ route('login') }}">
+        <form id="login_form" method="POST" action="{{ route('login') }}">
             @csrf
-            <x-forms.custom-input id="username" name="username" type="string" placeholder="Username"/>
-            <x-forms.custom-input id="password" name="password" type="password" placeholder="Password" required/>
+            <x-forms.custom-input id="username" name="username" type="string" placeholder="Username" required maxlength="64" autofocus/>
+            <x-forms.custom-input id="password" name="password" type="password" placeholder="Password" required maxlength="64"/>
             <x-forms.custom-input id="remember_me" name="remember" type="checkbox" value="1" checked/>
             <div>
                 @if (Route::has('password.request'))

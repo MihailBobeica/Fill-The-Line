@@ -14,6 +14,8 @@
 
     <script type="text/javascript" src="{{ asset('js/jquery-3.7.0.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/styles.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/ajax.js') }}"></script>
+    @yield('scripts')
 </head>
     <body>
         @yield('content')

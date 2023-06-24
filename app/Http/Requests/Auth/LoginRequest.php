@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Validation\Rules\Password;
 
 class LoginRequest extends FormRequest
 {
@@ -28,7 +29,7 @@ class LoginRequest extends FormRequest
     {
         return [
             'username' => ['required', 'string', 'max:64'],
-            'password' => ['required', 'string'],
+            'password' => ['required', 'string', Password::min(8), 'max:64'],
         ];
     }
 
